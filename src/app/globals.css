@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;700;800&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+body {
+  font-family: 'Be Vietnam', sans-serif;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.Toastify{
+  z-index: 100000;
+  position: relative;
+}
+
+.text-gradient-white-to-top-main{
+  background-image: linear-gradient(to top, #FFFFFF, #C60001);
+  color: transparent;
+  background-clip: text;
+}
+
+
+.limit-1-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.limit-2-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.limit-3-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.limit-4-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+#content-blog>p,
+#content-blog>ol>li {
+  font-size: 18px;
+  color: #19052ff2;
+}
+
+@layer components {
+  #content-blog img {
+    width: 100%;
+    @apply rounded-lg my-4
+  }
+
+  #content-blog p {
+    line-height: 2;
+    width: 100%;
+    @apply my-4
+  }
+
+  #content-blog h2 {
+    width: 100%;
+    @apply my-4 font-bold
+  }
+
+  #content-blog h3 {
+    width: 100%;
+    @apply my-4 font-bold
+  }
+
+
+  #content-blog>ol li+li {
+    display: block;
+    @apply my-4
+  }
+
+  #content-blog p+p,
+  #content-blog ul+p,
+  #content-blog p+ul,
+  #content-blog ul+ol,
+  #content-blog ol+ul,
+  #content-blog ol+p,
+  #content-blog p+ol,
+  #content-blog ol+ol {
+    display: block;
+    @apply my-4
+  }
+
+  #content-blog ol{
+    list-style: auto;
+    @apply ps-4
+  }
+
+  #content-blog li{
+    @apply mb-3
+  }
+
+  #content-blog ul{
+    list-style: unset;
+    @apply ps-4
+  }
+}
+
+#content-blog>p>strong {
+  display: block;
+  font-weight: 700;
+  font-size: 30px;
+  color: #19052ff2;
+  margin-bottom: 24px;
+}
+
+#content-blog a {
+  color: #851dc8;
+}
+
+
+.blog-title{
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.shadow-6{
+  box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.36);
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.overflow-but-hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.overflow-but-hide-scroll-bar{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
