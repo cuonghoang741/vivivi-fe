@@ -1,0 +1,41 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: codebase-nestjs-app-server
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    working_dir: /home/node/app
+    # command: [ "npm", "run", "start:dev" ]
+    restart: unless-stopped
+    tty: true
+    env_file:
+      - .env
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - codebase-nestjs-app-network
+    depends_on:
+      - redis
+
+  redis:
+    container_name: codebase-nestjs-app-redis
+    image: redis/redis-stack-server:latest
+    restart: unless-stopped
+    ports:
+      - 6380:${REDIS_PORT}
+    volumes:
+      - redis:/data
+    networks:
+      - codebase-nestjs-app-network
+
+volumes:
+  redis:
+    driver: local
+
+networks:
+  codebase-nestjs-app-network:
+    driver: bridge
