@@ -2,7 +2,7 @@ import React from 'react';
 import ModalComponent from '../ui/ModalComponent';
 import { Button } from '@nextui-org/react';
 import InputComponent from '../ui/InputComponent';
-import { Control, useForm } from 'react-hook-form';
+import { Control, useForm, FieldValues } from 'react-hook-form';
 import { ELoginType } from '@/utils/types';
 import useAccessToken from '@/hooks/useAccessToken';
 import { makeRequest } from '@/utils/apiClient';
@@ -54,7 +54,7 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <InputComponent
-            control={control}
+            control={control as unknown as Control<FieldValues>}
             name="email"
             label="Email"
             type="email"
@@ -63,7 +63,7 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
           />
           
           <InputComponent
-            control={control}
+            control={control as unknown as Control<FieldValues>}
             name="password"
             label="Password"
             type="password"
@@ -101,4 +101,4 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default SignInModal; 
+export default SignInModal;

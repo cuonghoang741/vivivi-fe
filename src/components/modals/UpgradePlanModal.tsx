@@ -39,7 +39,7 @@ const UpgradePlanModal: React.FC<UpgradePlanModalProps> = ({
                     <div className="bg-gray-50 p-4 rounded-lg">
                         <p className="font-semibold">Plan Details:</p>
                         <ul className="list-disc list-inside mt-2 space-y-2">
-                            {selectedPlan?.features.map((feature, index) => (
+                            {selectedPlan?.benefits?.map((feature, index) => (
                                 <li key={index} className="text-gray-600">{feature}</li>
                             ))}
                         </ul>

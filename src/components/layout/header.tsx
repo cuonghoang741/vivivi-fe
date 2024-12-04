@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Button, Link } from "@nextui-org/react";
 import SignInModal from "../modals/SignInModal";
 import useProfile from "@/hooks/useProfile";
 
