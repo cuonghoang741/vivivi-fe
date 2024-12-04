@@ -24,9 +24,9 @@ export default async function Home({
             method: 'GET',
             params: srsParams,
         });
-        return (
-            <Layout girls={girls?.girls || []}>
-                <HomePage girls={girls?.girls || []} />
+        return (    
+            <Layout>
+                <HomePage girls={girls?.girls || []} searchParams={searchParams}/>
             </Layout>
         );
     } catch (error) {
