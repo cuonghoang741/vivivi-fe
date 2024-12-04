@@ -23,3 +23,8 @@ export function formatPrice(price:any, type = "dot") {
             return moneyFormatter.format(price)?.replace('₫', 'đ');
     }
 }
+
+export function getAccessToken(){
+    return Cookies.get('accessToken') ?? ""
+}
+

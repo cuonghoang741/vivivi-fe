@@ -19,20 +19,20 @@ export default async function Home({
 }) {
     try {
         const srsParams = buildSearchParams(searchParams);
-        const courses:any = await makeSrsRequest({
-            path: API_PATHS.GET_COURSES,
+        const girls:any = await makeSrsRequest({
+            path: API_PATHS.GET_GIRLS,
             method: 'GET',
             params: srsParams,
         });
         return (
-            <Layout courses={courses?.courses}>
-                <HomePage courses={courses?.courses || []} />
+            <Layout girls={girls?.girls || []}>
+                <HomePage girls={girls?.girls || []} />
             </Layout>
         );
     } catch (error) {
         return (
             <Layout>
-                <HomePage courses={[]} />
+                <HomePage girls={[]} searchParams={searchParams}/>
             </Layout>
         );
     }

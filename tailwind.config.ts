@@ -55,19 +55,9 @@ module.exports = {
                     "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
             },
             colors: {
-                primary: "#C60001",
                 app: {
-                    main: "#C60001",
-                    secondary: '#19052f99',
-                    primary: '#19052ff2',
-                    success: '#22C55E',
-                    error: '#FF3B30',
-                    gray: '#19052f08',
+                    main: "#FF60EA",
                 }
-            },
-            borderColor: {
-                error: '#FF3B30',
-                primary: '#19052f0d'
             },
             flex: {
                 '2': '2 2 0%',

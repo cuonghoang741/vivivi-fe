@@ -51,7 +51,7 @@ export function formatFormDatetime(timestamp) {
     return formatDatetime(timestamp, "YYYY-MM-DDTHH:mm");
 }
 
-export function diffDays(start, end) {
+export function diffDays(start, end = Date.now() / 1000) {
     const startTime = moment(start * 1000);
     const endTime = moment(end * 1000);
     return endTime.diff(startTime, "days")
