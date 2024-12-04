@@ -15,21 +15,21 @@ export function loadMixamoAnimation(url: string, vrm: any) {
     const _vec3 = new THREE.Vector3();
 
     // Adjust with reference to hips height
-    const motionHipsHeight = asset.getObjectByName('mixamorigHips').position.y;
+    const motionHipsHeight = asset?.getObjectByName('mixamorigHips')?.position.y;
     const vrmHipsY = vrm.humanoid?.getNormalizedBoneNode('hips').getWorldPosition(_vec3).y;
     const vrmRootY = vrm.scene.getWorldPosition(_vec3).y;
     const vrmHipsHeight = Math.abs(vrmHipsY - vrmRootY);
-    const hipsPositionScale = vrmHipsHeight / motionHipsHeight;
+    const hipsPositionScale = vrmHipsHeight / (motionHipsHeight ?? 1);
 
     clip.tracks.forEach((track) => {
       const [mixamoRigName, propertyName] = track.name.split('.');
-      const vrmBoneName = mixamoVRMRigMap[mixamoRigName];
+      const vrmBoneName = mixamoVRMRigMap[mixamoRigName as keyof typeof mixamoVRMRigMap];
       const vrmNodeName = vrm.humanoid?.getNormalizedBoneNode(vrmBoneName)?.name;
       const mixamoRigNode = asset.getObjectByName(mixamoRigName);
 
       if (vrmNodeName != null) {
-        mixamoRigNode.getWorldQuaternion(restRotationInverse).invert();
-        mixamoRigNode.parent.getWorldQuaternion(parentRestWorldRotation);
+        mixamoRigNode?.getWorldQuaternion(restRotationInverse).invert();
+        mixamoRigNode?.parent?.getWorldQuaternion(parentRestWorldRotation);
 
         if (track instanceof THREE.QuaternionKeyframeTrack) {
           // Handle rotation tracks

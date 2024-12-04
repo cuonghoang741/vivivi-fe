@@ -31,7 +31,7 @@ const VrmDemo = () => {
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
-  const [currentVrm, setCurrentVrm] = useState(null);
+  const [currentVrm, setCurrentVrm] = useState<any>(null);
   const [currentMixer, setCurrentMixer] = useState<THREE.AnimationMixer | null>(null);
   const clock = useRef(new THREE.Clock());
 
@@ -194,9 +194,8 @@ const VrmDemo = () => {
 
     const loader = new GLTFLoader();
     loader.crossOrigin = 'anonymous';
-
     loader.register((parser) => {
-      return new VRMLoaderPlugin(parser, { boneVisibility: false });
+      return new VRMLoaderPlugin(parser);
     });
 
     loader.load(

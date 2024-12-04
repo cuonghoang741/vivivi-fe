@@ -28,3 +28,7 @@ export function getAccessToken(){
     return Cookies.get('accessToken') ?? ""
 }
 
+export function uuidV4(){
+    // use string random
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
