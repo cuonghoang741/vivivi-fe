@@ -249,8 +249,8 @@ const VrmDemo = () => {
   return (
     <div className="w-full">
         <div className="flex gap-2 justify-center my-10">
-            {demoActions.map((action) => (
-                <Button className="bg-white px-6 text-black rounded-full" onClick={() => loadAnimation(action.url)}>{action.name}</Button>
+            {demoActions.map((action, key) => (
+                <Button className="bg-white px-6 text-black rounded-full" onClick={() => loadAnimation(action.url)} key={key}>{action.name}</Button>
             ))}
         </div>
         <div 

@@ -34,7 +34,7 @@ const UpgradePlanModal: React.FC<UpgradePlanModalProps> = ({
                 
                 <div className="mb-6">
                     <p className="text-gray-600 mb-4">
-                        You're about to upgrade to the {selectedPlan?.name} plan with {billingPeriod} billing.
+                        You&apos;re about to upgrade to the {selectedPlan?.name} plan with {billingPeriod} billing.
                     </p>
                     <div className="bg-gray-50 p-4 rounded-lg">
                         <p className="font-semibold">Plan Details:</p>
