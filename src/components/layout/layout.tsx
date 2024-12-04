@@ -4,6 +4,7 @@ import Header from "@/components/layout/header";
 import {NextUIProvider} from "@nextui-org/react";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from "@/auth/AuthContext";
 
 const Layout = async ({
                           children,
@@ -14,12 +15,14 @@ const Layout = async ({
     return (
         <>
             <NextUIProvider>
-                <div>
-                    <Header/>
-                    {children}
-                    <ToastContainer/>
-                    <Footer/>
-                </div>
+                <AuthProvider>
+                    <div>
+                        <Header/>
+                        {children}
+                        <ToastContainer/>
+                        <Footer/>
+                    </div>
+                </AuthProvider>
             </NextUIProvider>
         </>
     )

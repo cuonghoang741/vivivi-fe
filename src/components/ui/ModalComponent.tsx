@@ -38,7 +38,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, dialogClassName, handleC
                 ...options
             }}
         >
-            <ModalContent className={`bg-white rounded-3xl ${padding}`}>
+            <ModalContent className={`rounded-3xl ${padding}`}>
                 {children}
             </ModalContent>
         </Modal>

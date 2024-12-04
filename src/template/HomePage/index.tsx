@@ -24,9 +24,9 @@ const mockGirls: Girl[] = [
     {
         id: "1",
         name: "Alice",
-        avatar_url: "https://d1j8r0kxyu9tj8.cloudfront.net/files/vkx6jjbQEUpKKBQBaR8f1WQBdzAY6m7AzL5Ojpdl.jpg",
+        avatar_url: "/assets/images/avatar/avt1.png",
         categories: [{ id: "1", name: "Gamer" }, { id: "2", name: "Anime" }],
-        background: "red",
+        background: "transparent",
         is_premium: false,
         description: "Your...",
         created_at: Date.now() / 1000,
@@ -36,9 +36,9 @@ const mockGirls: Girl[] = [
     {
         id: "1",
         name: "Alice",
-        avatar_url: "https://d1j8r0kxyu9tj8.cloudfront.net/files/EFefQxmbmOBUZnbIzCd7RHNxHI4XEBBYpH1MhfP5.jpg",
+        avatar_url: "/assets/images/avatar/avt2.png",
         categories: [{ id: "1", name: "Gamer" }, { id: "2", name: "Anime" }],
-        background: "red",
+        background: "transparent",
         is_premium: true,
         description: "anywehre",
         created_at: Date.now() / 1000,
@@ -52,7 +52,7 @@ const HomePage = ({ girls = mockGirls, searchParams }: { girls: Girl[], searchPa
     return (
         <div className="min-h-screen container mx-auto">
             <div className="flex flex-col items-center">
-                <h1 className="text-center max-w-[400px] font-normal text-6xl">
+                <h1 className="text-center max-w-[400px] font-normal text-6xl my-10">
                     AI DIGITAL
                     GIRLFRIENDS
                 </h1>

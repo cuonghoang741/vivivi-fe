@@ -36,13 +36,14 @@ const VrmDemo = () => {
   const clock = useRef(new THREE.Clock());
 
   useEffect(() => {
-    const heightAcceptPercent = 60
+    const heightAcceptPercent = 70
     const height = window.innerHeight * heightAcceptPercent / 100
     if (!containerRef.current) return;
 
     // Initialize Three.js scene
     const newScene = new THREE.Scene();
     const newCamera = new THREE.PerspectiveCamera(30.0, window.innerWidth / window.innerHeight, 0.1, 20.0);
+
     const newRenderer = new THREE.WebGLRenderer({
       alpha: true,  // Enable transparency
       antialias: true,
@@ -55,7 +56,7 @@ const VrmDemo = () => {
     newScene.background = null;
 
     // Setup scene
-    newCamera.position.set(0.0, 1.0, 5.0);
+    newCamera.position.set(0.0, 1.0, 2.5);
     
     const width = containerRef.current.clientWidth;
    
@@ -242,11 +243,11 @@ const VrmDemo = () => {
   }, [scene, camera, renderer, currentMixer, currentVrm]);
 
   useEffect(() => {
-    loadAnimation('/assets/animations/Idle.fbx');
+    loadAnimation('/assets/animations/Booty Hip Hop Dance.fbx');
   }, [currentVrm]);
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col items-center">
         <div className="flex gap-2 justify-center my-10">
             {demoActions.map((action, key) => (
                 <Button className="bg-white px-6 text-black rounded-full" onClick={() => loadAnimation(action.url)} key={key}>{action.name}</Button>
@@ -257,6 +258,7 @@ const VrmDemo = () => {
             style={{ 
                 background: 'transparent',
                 width: '100%',
+                maxWidth: '1400px',
                 height: 'auto'
             }} 
         />

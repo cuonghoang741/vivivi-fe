@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Button, Link } from "@nextui-org/react";
-import SignInModal from "../modals/SignInModal";
-import useProfile from "@/hooks/useProfile";
+import { useAuth } from "@/auth/AuthContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
-  const { profile, logout } = useProfile();
+  const { profile, logout, openSignInModal } = useAuth();
 
   const menuItems = [
     "TERMS OF SERVICE",
@@ -20,8 +18,9 @@ export default function Header() {
       <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        className="container mx-auto"
         classNames={{
-          wrapper: '!max-w-unset',
+          wrapper: 'max-w-[3000px]',
         }}
       >
         <NavbarContent justify="start" className="pointer-events-none">
@@ -37,11 +36,11 @@ export default function Header() {
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
             {profile ? (
-              <Button className="bg-white px-8 text-black" variant="light" radius="full" onClick={logout}>
+              <Button className="bg-white px-8 text-black" radius="full" onClick={logout}>
                 Sign Out
               </Button>
             ) : (
-              <Button className="bg-white px-8 text-black" variant="light" radius="full" onClick={() => setIsSignInOpen(true)}>
+              <Button className="bg-white px-8 text-black" radius="full" onClick={openSignInModal}>
                 Sign In
               </Button>
             )}
@@ -62,11 +61,6 @@ export default function Header() {
           ))}
         </NavbarMenu>
       </Navbar>
-
-      <SignInModal 
-        isOpen={isSignInOpen}
-        onClose={() => setIsSignInOpen(false)}
-      />
     </>
   );
 }
