@@ -50,7 +50,7 @@ const mockGirls: Girl[] = [
 const HomePage = ({ girls = mockGirls, searchParams }: { girls: Girl[], searchParams: any }) => {
     const category = searchParams?.category || "All";    
     return (
-        <div className="h-screen container mx-auto">
+        <div className="min-h-screen container mx-auto">
             <div className="flex flex-col items-center">
                 <h1 className="text-center max-w-[400px] font-normal text-6xl">
                     AI DIGITAL
@@ -60,20 +60,20 @@ const HomePage = ({ girls = mockGirls, searchParams }: { girls: Girl[], searchPa
                 Your soulmate, anytime, anywehre
                 </p>
                 <div className="flex gap-2 my-10">
-                    {categories.map((item) => (
-                        <Chip variant="light" className={`${category === item ? "text-white" : "text-white/50"}`} key={item}>
+                    {categories.map((item, index) => (
+                        <Chip variant="light" className={`${category === item ? "text-white" : "text-white/50"}`} key={index}>
                             {item}
                         </Chip>
                     ))}
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4 w-full">
-                    {mockGirls.map((girl) => (
-                        <CardGirl girl={girl} />
+                    {mockGirls.map((girl, index) => (
+                        <CardGirl girl={girl} key={index} />
                     ))}
                 </div>
                 <div className="flex justify-center items-center my-10">
-                    <Button variant="light" radius="full" 
-                    endContent={<ArrowRight size={16} />} className="text-black bg-white hover:bg-white/20 px-6 py-2">
+                    <Button radius="full" 
+                    endContent={<ArrowRight size={16} />} className="text-black bg-white px-6 py-2">
                         VIEW ALL (36)
                     </Button>
                 </div>

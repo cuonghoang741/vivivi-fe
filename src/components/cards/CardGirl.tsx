@@ -8,7 +8,7 @@ import CardGirlButtonChat from "../actions/CardGirlButtonChat";
 const CardGirl = ({ girl }: { girl: Girl }) => {
     return (
         <div key={girl.id}>
-        <div className="w-full h-full bg-red-500 pb-[70%] relative rounded-2xl overflow-hidden" style={{ background: girl.background }}>
+        <div className="w-full h-full bg-transparent pb-[70%] relative rounded-2xl overflow-hidden" style={{ background: girl.background }}>
             <div className="absolute top-0 left-0 w-full h-full">
                 <Image className="w-full h-full object-cover" src={girl.avatar_url} alt={girl.name} width={600} height={600} />
             </div>

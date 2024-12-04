@@ -14,10 +14,12 @@ const Layout = async ({
     return (
         <>
             <NextUIProvider>
-                <Header/>
-                {children}
-                <ToastContainer/>
-                <Footer/>
+                <div>
+                    <Header/>
+                    {children}
+                    <ToastContainer/>
+                    <Footer/>
+                </div>
             </NextUIProvider>
         </>
     )
