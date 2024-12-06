@@ -13,18 +13,12 @@ const Layout = async ({
 }>) => {
 
     return (
-        <>
-            <NextUIProvider>
-                <AuthProvider>
-                    <div>
-                        <Header/>
-                        {children}
-                        <ToastContainer/>
-                        <Footer/>
-                    </div>
-                </AuthProvider>
-            </NextUIProvider>
-        </>
+        <div>
+            <Header/>
+            {children}
+            <ToastContainer/>
+            <Footer/>
+        </div>
     )
 }
 

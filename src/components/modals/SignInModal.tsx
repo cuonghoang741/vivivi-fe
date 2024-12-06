@@ -8,7 +8,7 @@ import useAccessToken from '@/hooks/useAccessToken';
 import { makeRequest } from '@/utils/apiClient';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-
+import { signIn } from 'next-auth/react';
 interface SignInModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -21,8 +21,8 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
   const { setAccessToken } = useAccessToken();
   const [currentStep, setCurrentStep] = React.useState<SignUpStep>('email');
-
   const { control, handleSubmit, watch, formState: { errors } } = useForm<ELoginType>();
+
 
   const onSubmit = async (data: ELoginType) => {
     try {
@@ -45,7 +45,7 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
 
   const handleGoogleSignIn = async () => {
     // Implement Google Sign In logic here
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`;
+    signIn('google');
   };
 
   // Add step content rendering

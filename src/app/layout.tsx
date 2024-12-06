@@ -3,6 +3,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from "next/script";
+import Provider from "./provider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -25,7 +26,7 @@ export default async function RootLayout({
                   content="/thumb.jpg"/>
         </head>
         <body className={inter.className}>
-        {children}
+            <Provider>{children}</Provider>
         </body>
         </html>
     );

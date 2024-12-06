@@ -65,7 +65,7 @@ export const handleError = (error: any) => {
   }
 };
 
-export const makeRequest = async ({ path, body, params, method = 'GET' }: RequestParams) => {
+export const makeRequest = async <T>({ path, body, params, method = 'GET' }: RequestParams) => {
   const client = apiClient();
 
   const config: AxiosRequestConfig = {
@@ -77,8 +77,9 @@ export const makeRequest = async ({ path, body, params, method = 'GET' }: Reques
 
   try {
     const response = await client.request(config);
-    return response.data;
+    return response.data as T;
   } catch (error) {
-    handleError(error as AxiosError);
+    handleError(error as AxiosError<any>);
+    return {} as any;
   }
 };
